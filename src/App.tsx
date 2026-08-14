@@ -57,6 +57,7 @@ const THEMES = {
   light: {
     container: "bg-[#FAF9F6] text-zinc-900 h-screen w-screen flex flex-col font-sans overflow-hidden border border-zinc-200/80 max-w-7xl mx-auto shadow-2xl relative transition-all duration-300",
     header: "border-b border-zinc-200/80 px-4 md:px-6 py-3 flex flex-col lg:flex-row justify-between items-start lg:items-center bg-white shrink-0 gap-3 transition-all duration-300",
+    footer: "border-t border-zinc-200/80 px-4 md:px-6 py-2.5 flex flex-col sm:flex-row justify-between items-center bg-white shrink-0 gap-2 transition-all duration-300",
     title: "text-zinc-950 font-black tracking-tight uppercase leading-none m-0 text-lg md:text-xl",
     textMuted: "text-zinc-400 font-mono text-[10px] uppercase tracking-widest",
     accentText: "text-[#0055FF]",
@@ -74,6 +75,7 @@ const THEMES = {
   dark: {
     container: "bg-[#09090B] text-zinc-100 h-screen w-screen flex flex-col font-sans overflow-hidden border border-zinc-800 max-w-7xl mx-auto shadow-2xl relative transition-all duration-300",
     header: "border-b border-zinc-800/80 px-4 md:px-6 py-3 flex flex-col lg:flex-row justify-between items-start lg:items-center bg-[#121214] shrink-0 gap-3 transition-all duration-300",
+    footer: "border-t border-zinc-800/80 px-4 md:px-6 py-2.5 flex flex-col sm:flex-row justify-between items-center bg-[#121214] shrink-0 gap-2 transition-all duration-300",
     title: "text-[#F4F4F5] font-black tracking-tight uppercase leading-none m-0 text-lg md:text-xl",
     textMuted: "text-zinc-500 font-mono text-[10px] uppercase tracking-widest font-semibold",
     accentText: "text-blue-400",
@@ -3587,13 +3589,17 @@ export default function App() {
   // Gate render redirects based on authorization state
   if (authorizedState === 'checking') {
     return (
-      <div className="min-h-screen w-full bg-[#FAF9F6] text-zinc-900 flex flex-col items-center justify-center font-sans">
+      <div className="min-h-screen w-full bg-[#FAF9F6] text-zinc-900 flex flex-col items-center justify-center font-sans px-4">
         <div className="max-w-md w-full text-center p-8 flex flex-col items-center space-y-6">
           <div className="w-10 h-10 rounded-full border-2 border-t-zinc-900 border-zinc-200 animate-spin" />
           <div>
             <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-400">Broadsheet Compliance</h2>
             <p className="text-xs text-zinc-500 mt-2">Checking authorization credentials with cloud database...</p>
           </div>
+        </div>
+        <div className="mt-4 flex items-center gap-2 text-[10px] uppercase font-mono tracking-widest text-zinc-400 select-none">
+          <Lock className="w-3 h-3 text-zinc-400" />
+          <span>Internal Use Only • Broadsheet Media</span>
         </div>
       </div>
     );
@@ -3671,6 +3677,10 @@ export default function App() {
             </button>
           </div>
         </div>
+        <div className="mt-6 flex items-center gap-2 text-[10px] uppercase font-mono tracking-widest text-zinc-400 select-none">
+          <Lock className="w-3 h-3 text-zinc-400" />
+          <span>Internal Use Only • Broadsheet Media</span>
+        </div>
       </div>
     );
   }
@@ -3741,6 +3751,10 @@ export default function App() {
               {isSignUp ? "Already have an account? Sign in here" : "New to the Style Checker? Create an account"}
             </button>
           </div>
+        </div>
+        <div className="mt-6 flex items-center gap-2 text-[10px] uppercase font-mono tracking-widest text-zinc-400 select-none">
+          <Lock className="w-3 h-3 text-zinc-400" />
+          <span>Internal Use Only • Broadsheet Media</span>
         </div>
       </div>
     );
@@ -5457,6 +5471,33 @@ export default function App() {
           )}
         </AnimatePresence>
       </main>
+
+      {/* Editorial Page Footer */}
+      <footer className={currentTheme.footer}>
+        <div className="flex items-center gap-2.5">
+          <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${
+            theme === 'dark'
+              ? 'bg-amber-950/40 border-amber-800/60 text-amber-400'
+              : 'bg-amber-50 border-amber-200 text-amber-800'
+          }`}>
+            <Lock className="w-3 h-3 text-amber-500" />
+            Internal Use Only
+          </span>
+          <span className={`text-[11px] hidden sm:inline font-medium ${
+            theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'
+          }`}>
+            Broadsheet Editorial Style Checker • Proprietary &amp; Confidential
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <span className={`text-[10px] font-mono uppercase tracking-widest ${
+            theme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'
+          }`}>
+            Broadsheet Media © {new Date().getFullYear()}
+          </span>
+        </div>
+      </footer>
 
       {/* Macquarie Dictionary Upload Modal */}
       {showMacquarieManager && (

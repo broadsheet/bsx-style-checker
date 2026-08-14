@@ -1,0 +1,100 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Catch-all default deny to enforce Zero-Trust
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Path Variable and ID validation
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_-]+$');
+    }
+
+    // 3. Validation Blueprint for Cross-Check responses
+    function isValidLog(data) {
+      return data.keys().hasAll(['id', 'timestamp', 'originalCopy', 'aiCorrected', 'humanFinalized', 'accuracyScore'])
+        && data.keys().size() <= 14
+        && data.id is string && data.id.size() <= 100
+        && data.timestamp is string && data.timestamp.size() <= 100
+        && data.originalCopy is string && data.originalCopy.size() <= 500000
+        && data.aiCorrected is string && data.aiCorrected.size() <= 500000
+        && data.humanFinalized is string && data.humanFinalized.size() <= 500000
+        && (data.accuracyScore is int || data.accuracyScore is float) && data.accuracyScore >= 0 && data.accuracyScore <= 100
+        && (!data.keys().hasAny(['alignmentGap']) || (data.alignmentGap is string && data.alignmentGap.size() <= 100000))
+        && (!data.keys().hasAny(['fineTuningActionable']) || (data.fineTuningActionable is string && data.fineTuningActionable.size() <= 100000))
+        && (!data.keys().hasAny(['missedInfractions']) || data.missedInfractions is list)
+        && (!data.keys().hasAny(['correctAdherences']) || data.correctAdherences is list)
+        && (!data.keys().hasAny(['userEmail']) || (data.userEmail is string && data.userEmail.size() <= 200))
+        && (!data.keys().hasAny(['aiSuggestions']) || data.aiSuggestions is list)
+        && (!data.keys().hasAny(['lastEvaluatedAt']) || (data.lastEvaluatedAt is string && data.lastEvaluatedAt.size() <= 100));
+    }
+
+    // Validation Blueprint for Session Review logs
+    function isValidSessionLog(data) {
+      return data.keys().hasAll(['id', 'timestamp', 'copyMode', 'wordCount', 'totalSuggestions', 'acceptedCount', 'ignoredCount', 'pendingCount'])
+        && data.keys().size() <= 17
+        && data.id is string && data.id.size() <= 120
+        && data.timestamp is string && data.timestamp.size() <= 100
+        && data.copyMode is string && data.copyMode.size() <= 50
+        && (data.wordCount is int || data.wordCount is float)
+        && (data.totalSuggestions is int || data.totalSuggestions is float)
+        && (data.acceptedCount is int || data.acceptedCount is float)
+        && (data.ignoredCount is int || data.ignoredCount is float)
+        && (data.pendingCount is int || data.pendingCount is float)
+        && (!data.keys().hasAny(['reportMarkdown']) || (data.reportMarkdown is string && data.reportMarkdown.size() <= 1000000))
+        && (!data.keys().hasAny(['draftSummary']) || (data.draftSummary is string && data.draftSummary.size() <= 100000))
+        && (!data.keys().hasAny(['originalCopyText']) || (data.originalCopyText is string && data.originalCopyText.size() <= 1000000))
+        && (!data.keys().hasAny(['logName']) || (data.logName is string && data.logName.size() <= 1000))
+        && (!data.keys().hasAny(['currentDraftText']) || (data.currentDraftText is string && data.currentDraftText.size() <= 1000000))
+        && (!data.keys().hasAny(['aiCorrectedText']) || (data.aiCorrectedText is string && data.aiCorrectedText.size() <= 1000000))
+        && (!data.keys().hasAny(['userEmail']) || (data.userEmail is string && data.userEmail.size() <= 200));
+    }
+
+    // Validation Blueprint for User Feedback submissions
+    function isValidFeedback(data) {
+      return data.keys().hasAll(['id', 'timestamp', 'category', 'title', 'description', 'priority', 'status', 'userEmail'])
+        && data.keys().size() <= 10
+        && data.id is string && data.id.size() <= 120
+        && data.timestamp is string && data.timestamp.size() <= 100
+        && data.category is string && data.category.size() <= 50
+        && data.title is string && data.title.size() <= 500
+        && data.description is string && data.description.size() <= 50000
+        && data.priority is string && data.priority.size() <= 50
+        && data.status is string && data.status.size() <= 50
+        && data.userEmail is string && data.userEmail.size() <= 200
+        && (!data.keys().hasAny(['attachedContext']) || (data.attachedContext is string && data.attachedContext.size() <= 500000));
+    }
+
+    // 4. Secure collection matching blocks (accessible by backend server client queries)
+    match /user_feedback/{feedbackId} {
+      allow read, list: if true;
+      allow create, update: if isValidId(feedbackId) && isValidFeedback(request.resource.data);
+      allow delete: if true;
+    }
+
+    match /crosscheck_logs/{logId} {
+      allow read, list: if true;
+      allow create, update: if isValidId(logId) && isValidLog(request.resource.data);
+      allow delete: if true;
+    }
+
+    match /session_logs/{logId} {
+      allow read, list: if true;
+      allow create, update: if isValidId(logId) && isValidSessionLog(request.resource.data);
+      allow delete: if true;
+    }
+
+    match /style_guides/{guideId} {
+      allow read, write: if true;
+    }
+
+    match /macquarie_dict/{chunkId} {
+      allow read, write: if true;
+    }
+
+    match /authorized_users/{email} {
+      allow read, write: if true;
+    }
+  }
+}

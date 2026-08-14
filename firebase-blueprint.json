@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "crossCheckLog": {
+      "title": "CrossCheckLog",
+      "description": "A log of human-AI copy edit comparison and gap analysis for AI tuning",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the log entry" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "ISO timestamp of when the log was created" },
+        "originalCopy": { "type": "string", "description": "Original text before copy-editing" },
+        "aiCorrected": { "type": "string", "description": "The AI's corrected draft" },
+        "humanFinalized": { "type": "string", "description": "The human-edited finalized masterpiece" },
+        "accuracyScore": { "type": "integer", "description": "Evaluated alignment score from 0-100" },
+        "alignmentGap": { "type": "string", "description": "High-level summary of gaps/deviations" },
+        "missedInfractions": { "type": "array", "description": "List of specific stylistic deviations caught by the human sub-editor" },
+        "correctAdherences": { "type": "array", "description": "List of correct alignments met by the AI copy editor" },
+        "fineTuningActionable": { "type": "string", "description": "Actionable feedback for registry rules fine-tuning" },
+        "userEmail": { "type": "string", "description": "Email of the user who performed the crosscheck" }
+      },
+      "required": ["id", "timestamp", "originalCopy", "aiCorrected", "humanFinalized", "accuracyScore"]
+    },
+    "sessionReviewLog": {
+      "title": "StyleReviewLog",
+      "description": "An editorial review session log that keeps track of found suggestions, accepted changes, and report feedback.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the session log" },
+        "timestamp": { "type": "string", "description": "Local timestamp of the session log creation" },
+        "copyMode": { "type": "string", "enum": ["editorial"] },
+        "wordCount": { "type": "integer", "description": "Total word count reviewed" },
+        "totalSuggestions": { "type": "integer", "description": "Total style guide suggestions identified" },
+        "acceptedCount": { "type": "integer", "description": "Number of accepted corrections" },
+        "ignoredCount": { "type": "integer", "description": "Number of ignored corrections" },
+        "pendingCount": { "type": "integer", "description": "Number of remaining pending suggestions" },
+        "reportMarkdown": { "type": "string", "description": "Locked editorial report in markdown" },
+        "draftSummary": { "type": "string", "description": "Short preview of the reviewed text draft" },
+        "originalCopyText": { "type": "string", "description": "The exact original text before applying corrections" },
+        "logName": { "type": "string", "description": "The user-input name of the log" },
+        "currentDraftText": { "type": "string", "description": "The current manual draft or finalized copy" },
+        "aiCorrectedText": { "type": "string", "description": "The standard fully corrected AI recommended copy" }
+      },
+      "required": ["id", "timestamp", "copyMode", "wordCount", "totalSuggestions", "acceptedCount", "ignoredCount", "pendingCount"]
+    },
+    "customGuides": {
+      "title": "CustomGuides",
+      "description": "Dynamically customized style guide documents over riding default constants",
+      "type": "object",
+      "properties": {
+        "editorial": { "type": "string" },
+        "banned": { "type": "string" },
+        "dictionary": { "type": "string" },
+        "mistakes": { "type": "string" }
+      }
+    },
+    "macquarieChunk": {
+      "title": "MacquarieChunk",
+      "description": "Chunk of stringified Macquarie dictionary data for rehydration under 1MB",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string" }
+      }
+    },
+    "userFeedback": {
+      "title": "UserFeedback",
+      "description": "User feedback submission containing ideas, UX requests, or recurring AI error reports",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the feedback submission" },
+        "timestamp": { "type": "string", "description": "ISO timestamp of submission" },
+        "category": { "type": "string", "enum": ["idea", "ux_request", "ai_error", "general"] },
+        "title": { "type": "string", "description": "Short title or summary" },
+        "description": { "type": "string", "description": "Detailed explanation of idea, request, or AI error" },
+        "priority": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "status": { "type": "string", "enum": ["new", "in_review", "resolved", "dismissed"] },
+        "userEmail": { "type": "string", "description": "Email address of the submitter" },
+        "attachedContext": { "type": "string", "description": "Optional attached text copy or session metadata" }
+      },
+      "required": ["id", "timestamp", "category", "title", "description", "priority", "status", "userEmail"]
+    }
+  },
+  "firestore": {
+    "/user_feedback/{feedbackId}": {
+      "schema": "userFeedback",
+      "description": "Feedback entries submitted by users regarding tool ideas, UX requests, or AI errors"
+    },
+    "/crosscheck_logs/{logId}": {
+      "schema": "crossCheckLog",
+      "description": "Cross-check analysis history and compliance feedback logs shared across users"
+    },
+    "/session_logs/{logId}": {
+      "schema": "sessionReviewLog",
+      "description": "Shared editorial review session history and style compliance records"
+    },
+    "/style_guides/{guideId}": {
+      "schema": "customGuides",
+      "description": "Durable customization values for Broadsheet's style registers"
+    },
+    "/macquarie_dict/{chunkId}": {
+      "schema": "macquarieChunk",
+      "description": "Macquarie Dictionary file state parts stored durably"
+    }
+  }
+}

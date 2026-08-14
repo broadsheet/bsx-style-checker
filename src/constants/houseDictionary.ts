@@ -1,0 +1,505 @@
+export const HOUSE_DICTIONARY = `Adhere strictly to these preferred Australian spellings and editorial explanations:
+
+- 24/7 — Not "twenty-four-seven", or "24-7".
+- 50/50 — Not "50-50", or "50:50".
+- à la carte — Three words, with the accent. Not "a la carte", "a la cart", or "ala carte".
+- A / AN — "An" goes before words starting with a vowel sound; "a" is used before words starting with a consonant sound, including an aspirated 'h'. Examples: an hors d’oeuvre, a hotel, an umbrella, a unicorn, an $800 sewing machine, an RPA nurse.
+- ACMI — Capitalised. Homophone with "acme". Once stood for Australian Centre for the Moving Image, now the official name.
+- Aboriginal — Captalised adjective when referring to Australian Aboriginal people. Always lowercase when referring generically to original inhabitants of other continents. The noun "Aborigine" is banned and should not be used.
+- activewear — One word.
+- Adelaidean — For residents of Adelaide. Not "Adelaidian".
+- affect/effect — affect (verb), effect (noun). You affect the effect.
+- aficionado — One 'f'. Not "afficionado".
+- Afrobeat — Capped and one word.
+- afterparty — One word. Not "after party" or "after-party".
+- air conditioning — Two words, no hyphen. The abbreviated version is "air con" (no hyphen).
+- al fresco — Two words. Not "alfresco".
+- alright — One word, one 'l'. Not "allright".
+- alumnus/alumni/alum — "Alumnus" (singular), "alumni" (plural) for all genders. Do NOT use "alumna" or "alumnae". "Alum" is a singular, gender-neutral alternative.
+- americano/Americano — Lower-case for the coffee (americano), capped for the cocktail (Americano).
+- anti-aging — BANNED. Kill on sight. Nonsensical.
+- anymore — One word. (e.g. "you don't see restaurants like this anymore").
+- Anzac — Anzac, lower case "nzac".
+- art deco / art nouveau — Lower-case.
+- artefact — Spelled with an "e" (artefact), not "artifact".
+- artwork — One word, no hyphen.
+- asam / Assam — "asam" (sour tamarind) lowercase (e.g. asam laksa); "Assam" (cap A) for the Indian region's tea.
+- asap — Lowercase: "asap", not "ASAP".
+- astroturf — One word, lowercase "a".
+- aunty — Ends with "y" (aunty, plural aunties). Not "auntie". Title of respect for Indigenous elders gets a capital A (Aunty).
+- autoimmune — One word, no hyphens (autoimmune).
+- B Corp — certification style: B BCorp-certified, or B Corp certification.
+- B&B — Bed and breakfast.
+- baba ganoush — For the eggplant dip. Not "baba ghanoush" or "baba ghanouj".
+- backbar / backup — One word.
+- bain-marie — Two words, hyphenated.
+- bakkwa — One word for the Jerky.
+- ball gown — Two words.
+- bandroom — One word.
+- banh mi — Plural is "banh mi" (no S). No accents.
+- bar top — Noun: two words (bar top). Adjective: hyphenated (a bar-top blender).
+- barback — One word, no hyphen.
+- barbeque — Not "BBQ" or "barbecue" unless part of a proper noun name.
+- beachside — One word.
+- bechamel — No accent.
+- Bed Bath n Table — lower-case "n", no apostrophes. (Not Bed Bath N' Table).
+- beer hall — Two words, no hyphen.
+- bibimbap — One word.
+- bickie — Not "bikkie".
+- bingeing — Not "bingeing".
+- bingsoo/patbingsoo — Korean shaved-ice dessert.
+- biodynamic — esotoric farming standard. Check official certification before calling something biodynamic.
+- Bircher — Bircher muesli gets capital B.
+- biryani — Not "biriyani".
+- Black — Capital "B" only as an adjective when referring to Black people of the African diaspora.
+- black forest cake — Lowercase "black forest".
+- Blak — Capital "B" (Indigenous term).
+- blonde/blond — "blonde" (with -e) refers ONLY to beers. For hair and wood, it is "blond" (gender-neutral).
+- blow-dry — Hyphenated: cut and blow-dry, blow-drying, blow-dries.
+- bolognaise — Spelled "bolognaise". Not "bolognese". Spag bol is also acceptable.
+- BOM — Bureau of Meteorology. Always capped acronym, homophone with "bomb".
+- bon bon — Two words, no hyphen.
+- borscht — Spelled "borscht". Not borsch or borshch.
+- bottle shop — Two words. Short form is "bottle-o" (hyphen).
+- bougie — Not "boujee" or "bourgie".
+- breakdance / breakdancing — One word.
+- brekkie — Not "brekky" or "breakkie".
+- brewpub — One word.
+- Brisbanite — resident of Brisbane.
+- Brissie — Not "Brissy" or "Brizzy".
+- brotherboy — Aboriginal term for trans man. (Sistergirl for trans woman).
+- brutalist/brutalism — Lowercase.
+- bubblegum — One word.
+- Buffalo wing — Capital B for Buffalo, New York.
+- butterfly pea / butterfly pea-blue — Two words as a noun/ingredient ("butterfly pea"), but hyphenated as a color modifier preceding a noun ("butterfly pea-blue tea").
+- bumbag — One word.
+- 'burb — with left-facing apostrophe.
+- burek — preferred spelling of pastry. Not borek or bourek.
+- buyback — One word.
+- by-product — Hyphenated.
+- cache / cachet — cache (store), cachet (prestige).
+- cafe — No accent.
+- cafe de Paris butter/sauce — No accent, cap Paris.
+- Camembert — Cheesey proper noun, capital C.
+- campfire / campsite / canalside — One word.
+- canape — No accent (canape).
+- canelé — With acute accent on the e (canelé).
+- Cantina OK — In editorial, omit the exclamation mark. (Cantina OK, not Cantina OK!).
+- car park / car wash — Two words.
+- carat — Spelled carat for both gold purity and stone weights.
+- cardamom — Not cardamon.
+- casualwear — One word.
+- Celsius — Capital C.
+- chaat — Indian appetiser, not chat.
+- changemaker — One word.
+- Chantilly cream — Capital C.
+- char kway teow — Southeast Asian noodle spelling.
+- char siu / chashu — "char siu" for Cantonese pork; "chashu" for Japanese ramen pork (one word).
+- checklist / checkout — One word.
+- cheesemonger — One word.
+- cheesy — Not cheesey.
+- cheffy — Not chef-y.
+- chequerboard — Spelled "chequerboard". Not "checkerboard".
+- chifa — Lowercase.
+- chilaquiles — Mexican breakfast dish.
+- chilli — Spelled chilli, plural "chillies".
+- chitchat — One word.
+- choccy — Not "chocky".
+- chocolatey — Adjective spelling.
+- cinemagoer — One word. Also: festivalgoer, theatregoer, partygoer.
+- citrusy — One 's'.
+- citywide — One word, no hyphen.
+- clambake — One word.
+- clay pot — Noun: two words (clay pot). Adjective: one word (claypot rice).
+- cliché — With accent (cliché).
+- click-and-collect — Hyphenated noun.
+- co-owner / co-working space — Hyphenated.
+- Cockney — Capital C.
+- coeliac — Lower-case "c". Not "celiac". Use person-first language: "people with coeliac disease".
+- Coke — Capital C (soft drink).
+- cold drip — Noun: two words, no hyphen.
+- cold-cuts — Hyphenated.
+- compared to/with — "Compare to" for similarities; "compare with" for differences.
+- complement/compliment — complement (completes), compliment (praise / free product).
+- comprise — The fruit salad "comprises" apples, pears, and oranges. Not "comprised of".
+- comté — Lowercase, accent on the e.
+- consommé — With accent.
+- contrast — something stands in contrast "with" (not to) something else.
+- coronavirus / Covid-19 — Lowercase c for coronavirus; Capital C for Covid-19.
+- corndog — One word.
+- cos — as in "because", no apostrophe.
+- cossie — Not cozy, cozzie.
+- Country — Capital C for Indigenous context.
+- crème brûlée — With three accents.
+- crème fraîche — With two accents.
+- crossbody — One word (crossbody).
+- crowdfunded / crowdfunding / crowdsourcing — One word.
+- crudité — With accent.
+- dal — For lentil stew. Not dahl or dhal.
+- dance floor — Two words. (d-floor is hyphenated).
+- dancehall — One word.
+- danish — Lowercase d for the pastry.
+- Darwinite — For residents of Darwin.
+- Davidson's plum — Capital D, possessive apostrophe.
+- daylight saving — Two words, no "s" on saving.
+- daytrip — One word.
+- decor — No accent.
+- deep-fryer — Hyphenated.
+- degrees (academic) — Lowercase: bachelor of fine art.
+- Delta — variant Capital D.
+- dependant (noun) / dependent (adjective).
+- die-hard — Hyphenated.
+- Dijon mustard / dijonnaise — Cap D for Dijon, lowercase d for dijonnaise.
+- discreet (prudent) / discrete (distinct).
+- Disney+ — Name ending with "+" (not plus).
+- disoriented — Not "disorientated".
+- DJ / DJing — Not deejay.
+- Doordash — Lowercase d (Doordash).
+- dos and don’ts — Preferred spelling.
+- dosa — Not dosai or thosai.
+- doughnut — Not "donut".
+- Down Under — Capital D and U.
+- Dreamtime / Dreaming — Capital D.
+- dry age — Verb: "dry age" (two words). Adjective: "dry-aged" or "dry-aging".
+- dukkah — Middle Eastern spice blend. Not dukka.
+- earth — Cap E for planet, lowercase for soil/sayings.
+- east end (Adelaide) — Lower-case.
+- east/eastern — Capitalise Eastern philosophies, the Western world, etc. Otherwise lowercase.
+- Eastern Europe — Capped.
+- eastern suburbs — Lowercase.
+- eBay — Spelled eBay.
+- eclair — No accent.
+- eco lodge — Two words.
+- electro-pop — Hyphenated.
+- ecommerce / email / emoji / emojis — No hyphen. "ecommerce" is written as one word, all lowercase, and totally unhyphenated. Do not camelCase as "eCommerce" or hyphenate as "e-commerce".
+- enquire/inquire — causal enquiry; official inquiry.
+- ensuite / entree — No accent.
+- esky — Lowercase "esky".
+- extra-virgin — Hyphenated.
+- facade — No cedilla.
+- facelift — One word.
+- fair trade / Fairtrade — Noun: two words. Adjective: hyphenated (fair-trade coffee). Certified: "Fairtrade-certified".
+- falafel — Not felafel. Plural is falafel.
+- fall — Banned for season. Always use "autumn".
+- famous/infamous — infamous (bad reputation); famous (well known/celebrated).
+- Far North Queensland / Tropical North Queensland — Capitalised.
+- farmers market — No apostrophes.
+- farmgate / farmstay — One word.
+- fattouche — Levantine salad, sumac, crisp flatbread (not fattoush).
+- fertiliser — Not fertilizer.
+- feta — Not fetta.
+- fine-dining — Adj hyphen (fine-dining room); Verb/noun no hyphen (enjoy fine dining).
+- firepit — One word.
+- first-hand — Hyphenated.
+- fish'n'chip shop / fish'n'chips — No spaces.
+- fit-out — Always hyphenated.
+- flatbread / flatpack — One word.
+- flesh/nude — Avoid. Use inclusive words: beige, tan, champagne.
+- fluro — Short for fluorescent. Not fluoro.
+- focus / focused / focusing — No double s.
+- follow-up (noun), follow up (verb).
+- fomo — Lowercase.
+- français — lowercase, with cedilla.
+- frappe — No accent.
+- free rein — Not "free reign". (same for "rein in").
+- frontman/frontwoman — One word.
+- fruit cake — Two words.
+- ful medames — Fava bean dish. Spelled ful.
+- fulfil / fulfilment — Not fulfill, fulfillment.
+- fully fledged — Not hyphenated, not full fledged.
+- galbi — Not kalbi.
+- gameshow — One word.
+- gelatine — Spelled with 'e' (gelatine).
+- Gilda — pintxo capped.
+- Guinness — Always capitalize and spell with double "n" and double "s" (never "Guiness" or "guinness"). Correct all instances globally across the copy.
+- giveaway (noun), give away (verb).
+- glutenous (contains gluten) / glutinous (sticky).
+- goat's cheese — Possessive, not goats cheese or goat cheese.
+- good-looking — Hyphenated.
+- Grana Padano — proper cheese, capped.
+- gruyere — Lowercase, no accents.
+- gypsy — Try to avoid.
+- half caf — Not half caff.
+- haloumi — Genertic: haloumi (one L). Cypriot certified: halloumi (two Ls).
+- hand-carved / hand-pick / hand-source / hand-paint — Hyphenated compound verbs.
+- handcut — adjective (handcut chips). Verb is "hand cut".
+- handmade / handpainted / handroll / handwash — One word.
+- hands on — Adj: hands-on. Verb: get hands on.
+- harbourfront / harbourside — One word.
+- hard-working — Hyphenated.
+- hellbent — One word.
+- Highball — Capitalized cocktail.
+- highrise — taller building is one word. High-rise pants are hyphenated.
+- HIIT — Capped acronym.
+- hip-hop — Hyphenated.
+- hiramasa kingfish — Lowercase.
+- historic/historical — historic (momentous); historical (from the past).
+- Hobartian — Capital H.
+- hodge podge — Two words.
+- hojicha — Green tea, not houjicha.
+- Hokkien — Capital H.
+- holdout / standout / standup / startup — Noun/adj is one word. Verb is two words.
+- homage — "a homage", pronounced starting with H sound (not an homage).
+- homegrown / homemade / homeowners / homepage / homestyle / honeybee — One word.
+- hotcakes / hotdog / hotpot / hotshot / hotspot — One word.
+- house-made — Hyphenated.
+- housewarming — One word.
+- hummus — Spelled hummus, not hommus.
+- humorous — Not humourous.
+- hyperlocal / hyperseasonal — One word.
+- ice box — Two words.
+- ice-cream — Hyphenated.
+- immune — "immune to", not "immune from".
+- imply / infer — Speaker implies, listener infers.
+- impressionism/impressionist — Lowercase.
+- in-between — Hyphenated.
+- postseason — One word.
+- in-store / on-site — Hyphenated.
+- inner west — lowercase.
+- Instagrammable — Capital I, two Ms.
+- internet / web / website — Lowercase.
+- iPhone / iPad / iMovie — Mixed case branding.
+- Isan — NE Thailand region spelling.
+- its/it's — its (possessive), it's (contraction).
+- jail — Preferred over gaol.
+- jalapeno — No accent.
+- jamon iberico — Lowercase.
+- Jersey — Capital J (cattle).
+- Kakadu plum — Capital K.
+- karat — Use carat instead.
+- king-size / queen-size — Hyphenated.
+- kimchi — Spelled ending in i.
+- kitchenhand / kiwifruit — One word.
+- knafeh — Middle Eastern dessert spelling.
+- knick-knacks — Hyphenated.
+- knowhow / kombu — One word.
+- kottu roti — Sri Lankan chopped dish.
+- Kyiv — Kyiv, not Kiev. chicken Kyiv is capped Kyiv.
+- labelled — Double L.
+- labneh — Not labne.
+- laid-back — Hyphenated.
+- lambic — Lowercase Belgian beer.
+- larb — minced meat dish spelling.
+- lasagne — Not lasagna.
+- last/past — last (most recent); past (all time in historical context).
+- late-night — Hyphenated adjective.
+- Lebanese cucumber — Capital L.
+- leisurewear / lemongrass — One word.
+- LGBTQI+ — standard acronym.
+- license/licence — licence (noun), license (verb).
+- life span — Two words.
+- line-up (noun), line up (verb).
+- liquorice — Not licorice.
+- livestream (noun), live-stream (verb).
+- long-time (adj), long time (duration).
+- longform — One word.
+- loukoumades — Greek doughnuts.
+- low-key — Hyphenated.
+- mac'n'cheese — One word with apostrophes.
+- mainstage / make-up — mainstage is one word, make-up is hyphenated cosmetics.
+- makrut lime — Always replace racist slur "kaffir lime".
+- manchego — Lowercase cheese.
+- manoush — Lebanese flatbread.
+- mapo tofu — mapo is lowercase, one word.
+- margherita — Lowercase pizza.
+- mark-up — Hyphenated retail markup.
+- mashup — One word.
+- Masterchef — Capital M, italics.
+- masterclass — One word.
+- mastiha — Greek liqueur spelling.
+- mc / mcing — Not emcee.
+- media — plural (the media are).
+- mee goreng / mi goreng / mie goreng — mee (general), mi (Malay), mie (Indonesian).
+- Melburnian — Not Melbournian.
+- melonpan — One word, no hyphen.
+- Mercedes-Benz Fashion Week — Hyphenated.
+- #MeToo movement — correct capitalization.
+- mezcal — with z.
+- meze — one z, not mezze.
+- Michelin-starred — correct spelling.
+- Microplane — capital brand.
+- mid-century — Hyphenated.
+- midyear — One word, no hyphen.
+- MIFF / Mona / QAGOMA — mixed capitals rules.
+- mille-feuille — French pastry spelling.
+- millennium — double n.
+- minibreak / minidress / miniskirt — One word.
+- mochachino — Spelled mochachino.
+- month-long — Hyphenated.
+- Mont Blanc — Capital M and B.
+- more-ish — Hyphenated.
+- mouthfeel / handfeel — One word.
+- muffuletta / muhammara — correct spelling.
+- multi-course / multi-level — Hyphenated.
+- multimillion / multisensory — One word.
+- nam jim — dipping sauce, lowercase.
+- Napoletana — Cap N, "e" in middle.
+- NEIPA — all caps.
+- 'nduja — Left-facing apostrophe at start.
+- New Year's Eve / Day — caps with apostrophe. resolutions are lowercase.
+- newsfeed / night-time / nightclub / nightlife — spelling choices.
+- Nikkei — Capital N.
+- no one — Two words.
+- non-profit — Hyphenated.
+- north shore / northern beaches — Lowercase.
+- occurred / okay — preferred spelling.
+- old world / new world — adjective hyphenated.
+- onboard (adj), on board (preposition).
+- on-site / online — spelling.
+- op shop (noun), op-shopping (verb).
+- Openair Cinema — correct name.
+- organic — check certificate.
+- osso buco — one c.
+- otherworldly — One word.
+- outback — Outback planet, outback town lowercase.
+- over — prefer "more than" for numeric values.
+- pad thai — lowercase.
+- palate (taste)/ palette (art)/ pallet (cargo).
+- panko — lowercase.
+- panna cotta — two words.
+- pantsuit — One word.
+- parma/parmie — Plurals parmas/parmies. Not parmy/parmi.
+- parmesan — lowercase. Capped only for Parmigiano-Reggiano.
+- parrilla — Argentinian grill.
+- pastel de nata — plural pasteis de nata.
+- pâté — accents on the a and e.
+- pepperberry — One word.
+- per cent — Two words. Use % only for non-body texts.
+- Perthite — residents of Perth.
+- pét-nat — lowercase hyphen accent on e.
+- photo shoot — Two words.
+- photobooth — One word.
+- pick-up (noun), pick up (verb).
+- Pilates — Capital P.
+- pill testing — Two words.
+- pintxos — singular pintxo.
+- pippies — plural of pipi, not pipis.
+- pitmaster — One word.
+- po' boy — lowercase space.
+- poke — Hawaiian salad, no accent.
+- poky — small/cramped, not pokey.
+- pop star — Two words.
+- pop-up — hyphenated noun/adj.
+- post-punk — hyphen.
+- postmodern — one word.
+- potluck / pour-over — spelling.
+- practice (noun), practise (verb).
+- precook / preheat / preloved / premade / premix / presale — One word.
+- pre-order — Hyphenated (Macquarie standard). Do NOT merge into "preorder". Do not extrapolate prefix rules to other words not explicitly in this house dictionary: if a word is missing, always default to Macquarie spelling.
+- pricepoint — One word.
+- program — Not programme.
+- Prohibition — Capped for the US historical era.
+- prosecco — lowercase.
+- provedore — Not providore.
+- puer — Yunnan tea, no apostrophe/hyphen.
+- punchbowl — One word.
+- puree — No accent.
+- pyjamas — Not pajamas.
+- QAGOMA — Queensland art gallery acronym, all-caps.
+- queen-size — hyphenated.
+- queer — lowercase.
+- queuing — one e.
+- R and R / R'n'B — preferred forms.
+- ragu — No accent.
+- rakija — fruit brandy.
+- rec / recs — short for recommendation.
+- recreation (fun), re-creation (replica).
+- reimagine / reopen / reuse — One word.
+- rein in — Not "reign in".
+- resort wear — Two words.
+- restaurateur — No n in middle.
+- Reuben — sandwich, capitalized.
+- rideshare / ridesharing — One word.
+- road map / road trip — Two words.
+- fish'n'chip shop / fish'n'chips — No spaces.
+- rock climbing / rock pool — Two words.
+- rock star (noun), rockstar (adj).
+- rock'n'roll — no spaces, left facing apostrophes.
+- Rockpool — capital proper noun.
+- rollout / rundown — One word.
+- Roquefort — proper cheese, capitalized.
+- rosé — with accent.
+- rosehip — One word.
+- saké — with acute accent.
+- sambal / sambol — Malaysian is sambal; Sri Lankan is sambol.
+- san choy bow — preferred spelling.
+- sanga — aussie sandwich. Plural sangas. Not sanger. (sando is Japanese only).
+- sat nav — lowercase two words.
+- sauce grenoblaise — lowercase.
+- saute / sauteed / sauteeing — lowercase, no accents.
+- scepticism — Not skepticism.
+- schmear — Not schmeer.
+- Scotch whisky — Scotch capped, whisky with no e.
+- seasons — lowercase: winter, spring, summer, autumn.
+- second-hand / self-care / self-taught — hyphenated.
+- sellout (noun/adj), sell out (verb).
+- sequinned — double n.
+- servingware / shopfront / shortlist — One word.
+- Sichuan — Not Szechuan.
+- singalong — One word.
+- singer-songwriter — hyphenated.
+- sistergirl / brotherboy — Indigenous trans terms.
+- sitewide — One word.
+- siu mai — dim sum dumpling.
+- six-pack — hyphenated.
+- sizeable / skincare / smartphone — One word.
+- smack-bang — hyphenated.
+- smallgoods — One word.
+- smash burger — Two words.
+- smoky — Not smokey.
+- sobrasada — one s in middle.
+- som tum — green papaya salad spelling.
+- soufflé / sous-chef — spelling.
+- South — Capped only for Deep South US food.
+- South East Queensland — three words, capped, no hyphens.
+- Southeast Asia — One word. (Adj is Southeast Asian).
+- southern hemisphere — lowercase.
+- Spam — capped for meat, lowercase for email.
+- speakeasy — One word.
+- spray paint (noun), spray-paint (verb).
+- spring onion — preferred term.
+- sriracha — lowercase unless brand.
+- standalone / standby / standout / standup / startup — spelling.
+- stir-fry (noun/verb) — hyphenated.
+- Stolen Generations — Capped.
+- storewide / storey/storeys / straightaway — spelling.
+- streetfront / streetwear — One word.
+- stripey — Not stripy.
+- sujuk — spicy Balkan sausage spelling.
+- sulphur — spelling.
+- superfood — avoid if possible.
+- surf'n'turf — correct spelling.
+- surrealism — lowercase.
+- sweetcorn — One word.
+- Sydneysider — capital S.
+- T-shirt / tee (short form) — correct style.
+- tableside / tabouli / tahini / takeaway / taskforce / teammate — spelling.
+- tea bag — Two words.
+- The Hot List / The Rocks — capped proper nouns.
+- The Temper Trap — Always capitalize the band proper noun name and ensure the "The" is present (never "the Temper Trap" or "Temper Trap" if referring to the band).
+- there/they're/their — spelling rules.
+- ticketholder / tight-lipped / Tiktok / till / timeframe / timeline — spelling.
+- togarashi — no accent on o.
+- ton/tonne/tun — colloquial weights pin.
+- touchscreen / trackie daks / trans man / trans-seasonal — spelling.
+- travelled — double L.
+- treehouse — One word.
+- tribe — Avoid. Use "people" or "community" instead.
+- Triple J — capped.
+- try to — not try and.
+- turtleneck — One word.
+- uber / Uber Eats / um and ah / upbeat / USA/UK/UN — spelling.
+- vada pav — Indian snack.
+- veg/veggie — Not vegie or vege.
+- verandah — preferred spelling.
+- Vicroads / viewpoint / vinyl / visa holder — spelling.
+- wacky / Wagyu / waitstaff / warabi mochi / wattleseed / web / wellbeing — spelling.
+- west end (Adelaide) / West end (Brisbane).
+- West / Western / Western Australian / Western Europe — capitalization rules.
+- whisky / whiskey — Always use 'whisky' (no e) for ALL whiskies.
+- whistleblower / whiz — spelling.
+- whose/who’s / whom / wi-fi / wintry / wishlist / woodfired / workout / workwear — spelling.
+- x — lowercase linking (e.g., Broadsheet x Estrella).
+- xiaolongbao — One word soup dumpling.
+- yiros / yoghurt / your/you're / yuletide — spelling.
+- za’atar / zen / Zen / zhoosh / zhoug / Zimmermann — spelling rules.`;

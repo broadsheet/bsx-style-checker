@@ -1,0 +1,96 @@
+export const BANNED_WORDS = `The following words, expressions, and clichés are BANNED or highly discouraged. Always substitute them with more specific, modest, and editorial terms, or delete them outright.
+
+- "Unique" — Avoid. It probably isn’t unique.
+- "Palpable" — Overused. Usually, whatever you are saying is palpable isn't actually.
+- "Our shores" / "Australian shores" — Banned. Just say "Australia".
+- "The likes of" — Overused. Replace with "such as" or "including".
+- "Hospo veterans" — Use sparingly; overdone on Broadsheet.
+- "hospo" — Discouraged. Just say "hospitality".
+- "Freshly baked" — Obvious/redundant for a bakery. Only mention if it's NOT fresh. Otherwise, it is assumed.
+- "whilst" — Just use "while".
+- "Amongst" — Just use "among".
+- "Certainly" — e.g. "It certainly isn't a typical Sydney bar". In almost all cases, it can just be deleted.
+- "Artisan" — Not banned exactly, but use in moderation and never more than once per story. Ensure what you describe actually is artisan.
+- "Well worth the trip" / "worth a look" — Avoid. Too cliché/salesy.
+- "Must-visit" / "must-see" / "must-try" / "must-order" / "must-do" — Banned PR buzzwords. Replace with specific descriptions.
+- "Save room for" — Avoid. Overused cliché.
+- "perfectly cooked" / "cooked to perfection" — Avoid. Cliché.
+- "Cheap and cheerful" — Avoid. Too informal/cliché.
+- "Concoction" when referring to cocktails — Banned. Use "cocktail" or "drink".
+- "Dissimilar" — Avoid. Use "different".
+- "A heady mix" / "A riot of" — Clichés, avoid.
+- "Mouth-watering" — Avoid.
+- "boasts"/"boasting" — e.g., "The bar boasts an extensive drinks list". Overused and weird. Just say "has" or "features".
+- "A sumptuous repast" — Overly formal, avoid.
+- "You simply must" / "Wash it down with" — Avoid (comms/marketing copywriting, not journalism).
+- "Beguiling marriage of" — Cliché, avoid.
+- "sings with" — e.g., "[Blah] sings with [blah]". Avoid.
+- "Brainchild" — e.g., "the cafe is the brainchild of...". Overused. Replace with "created by".
+- "Sheer delight" / "Good quality" — Avoid. "Good quality" can be assumed for venues we write about.
+- "Crispy" — As of May 2025, no longer banned, but shouldn't be used more than once in a piece. "Crisp" and "crispy" are not always synonymous.
+- "Delectable" / "Delicious" / "Delightful" — Exhausted food adjectives. Avoid. Be more descriptive.
+- "Doyen" / "doyenne" — Avoid.
+- "Lashings" / "Look no further" — Avoid.
+- "Fashionista" — Avoid.
+- "Flavoursome" — "flavourful" is okay in small doses, but avoid "flavoursome".
+- "Foodie" — Highly discouraged.
+- "Quaint" — Avoid.
+- "Uber" — Only use when referring to the ride-sharing service. Never use as an intensive prefix (e.g., "uber-cool").
+- "Make sure" — e.g., "Make sure you get your tickets...". Discouraged.
+- "Think" — e.g., "The menu is eclectic, think milkshakes and cocktails...". Overused, avoid.
+- "Head on down to" — Cliché, avoid.
+- "Don’t forget your dancing shoes" — Cliché, avoid.
+- "Humble" — e.g., "The humble croissant", "the humble neighbourhood bakery". Overused, and often the item is not actually humble.
+- "However" when "but" is meant — Use "but" instead.
+- "Nevertheless" — Too formal, omit or simplify.
+- "Sneak peek" — Avoid.
+- "Sweet treats" — Just say "sweets" or "treats".
+- "-cum-" — (e.g. bar-cum-pizza joint). Avoid.
+- "Something for everyone" — Cliché.
+- "Notorious" — Banned unless followed immediately by "B.I.G."
+- "Showcase" — e.g., "The exhibition will showcase emerging artists". Overused, use "show" or rewrite.
+- "Nestled" / "perched" / "tucked" — e.g., "nestled on a quiet street". Overused; venues are rarely nestled or perched.
+- "spinster" — Never call a DJ a "spinster".
+- "DJs spinning tunes" — Cliché, never use.
+- "Sling" / "slinging" — e.g., "the barista will be slinging coffees". Overused, avoid.
+- "All corners of the globe" — Cliché, avoid.
+- "Hailing" — e.g. "hailing from". Just use "from".
+- "Furthermore" / "however" — High-school essay words. Simplify (use "but", etc.).
+- "Carefully curated" — Just use "curated", or better yet, avoid entirely.
+- "To boot" — Avoid.
+- "Never fear" — Cliché, avoid.
+- "Homage" — Overused.
+- "Songstress" / "chanteuse" — Avoid.
+- "rejoice" — e.g., "[group of people] rejoice!" ("film-lovers rejoice"). Avoid.
+- "Sophomore" — Avoid (e.g. sophomore effort, sophomore album).
+- "Lust-worthy" / "Coveted" — Avoid in fashion/lifestyle context.
+- "Big-name" — Avoid in relation to fashion (e.g., big-name brands).
+- "Pivot" / "pivoting" — Replace with switch, change, introduce, flip, stop, swap.
+- "Unprecedented" — Avoid (relating to coronavirus).
+- "From the comfort of your home" / "From the comfort of your couch" — Avoid.
+- "Powwow" — Banned. Do not use colloquially for "meeting" or "chat" due to cultural insensitivity to Native American rituals. Use "chat" or "meeting".
+- "Spring has sprung" — Cliché, avoid.
+- "Pimp" — e.g., "pimped out doughnuts". Banned.
+- "Ghetto" — Banned.
+- "Eurocentric" — Highly discouraged unless in a pejorative context criticizing Western blinkers.
+- "Authentic" — Discouraged (ask: "to whom?").
+- "Muso" — Avoid.
+- "All-female band" / "all-girl band" — Avoid unless gender is highly relevant to the context.
+- "or just pop in" — e.g., "You can have a meal, or just pop in for a glass of wine". Too repetitive. Say something specific instead.
+- "A pop of colour" — Cliché, avoid.
+- "gourmet" / "gourmand" — Avoid.
+- "like no other" — Cliché, avoid.
+- "Show stopper" / "show-stopping" — Avoid unless strictly justified.
+- "immersive" — Banned PR buzzword. Be specific instead.
+- "Kaffir lime" — RACIST SLUR. Always replace with "makrut lime".
+- "Slathered" — Overused, use with restraint.
+- "Slurp" — Overused, avoid.
+- "Exotic" — Avoid, especially when describing foods from non-Western cultures.
+- "Iconic" — Use sparingly and only if truly iconic.
+- "Muses" — Avoid as an attribution (e.g., "...," she muses).
+- "Hot" / "red hot" — Use very occasionally.
+- "Drool-worthy" — Banned. Or anything involving "drool".
+- "Rustic charm" / "Bounty" — Cliché, avoid.
+- "It’s no surprise that" — Avoid.
+- "pine" / "pining" — Avoid in salesy or commercial contexts.
+- "Platform" as a verb — Discouraged.`;

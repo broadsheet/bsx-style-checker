@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Aptos", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #111111;
+  --color-brand-offwhite: #F9F9F7;
+  --color-brand-blue: #0055FF;
+  --color-border-main: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-offwhite text-[#1A1A1A] font-sans antialiased m-0 h-screen;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-sans font-black tracking-tighter uppercase;
+  }
+}
+
+.markdown-body h2 {
+  @apply text-xs font-bold tracking-[0.1em] uppercase bg-[#1A1A1A] text-white py-3 px-6 -mx-8 -mt-8 mb-8;
+}
+
+.markdown-body h3 {
+  @apply text-4xl font-bold leading-tight mt-2 italic font-serif lowercase tracking-normal;
+}
+
+.markdown-body p {
+  @apply my-6 leading-relaxed text-[#1A1A1A] text-lg font-serif;
+}
+
+.markdown-body ul {
+  @apply my-6 space-y-6;
+}
+
+.markdown-body li {
+  @apply relative pl-8 border-l-2 border-red-500 list-none;
+}
+
+.markdown-body strong {
+  @apply font-bold text-gray-900;
+}
+
+.markdown-body em {
+  @apply italic text-gray-500 text-sm block mb-1;
+}
+
+/* Custom classes for the design */
+.drop-cap::first-letter {
+  @apply float-left text-6xl font-black font-sans leading-[0.8] mr-3 mt-1;
+}
+
+/* Ensure consistent font, line height, size, and margin in rich text editors */
+.editorial-canvas,
+.editorial-canvas p,
+.editorial-canvas div,
+.editorial-canvas span {
+  font-family: "Aptos", sans-serif !important;
+  line-height: 1.65 !important;
+}
+
+.editorial-canvas p,
+.editorial-canvas div {
+  margin-top: 0 !important;
+  margin-bottom: 1.25em !important;
+}
+

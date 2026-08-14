@@ -1,0 +1,52 @@
+# Builds the Docker image and deploys to Cloud Run.
+# Secrets are injected at runtime from Secret Manager (not from .env in the repo).
+#
+# One-time admin setup: see DEPLOY.md
+# Trigger: push to main → Cloud Build configuration file → cloudbuild.yaml
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    id: build
+    args:
+      - build
+      - -t
+      - ${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}:${COMMIT_SHA}
+      - -t
+      - ${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}:latest
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    id: push
+    args:
+      - push
+      - --all-tags
+      - ${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE_NAME}
+      - --image=${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}:${COMMIT_SHA}
+      - --region=${_REGION}
+      - --platform=managed
+      - --port=3000
+      - --set-secrets=GEMINI_API_KEY=${_GEMINI_SECRET}:latest,FIREBASE_API_KEY=${_FIREBASE_SECRET}:latest
+      - --allow-unauthenticated
+
+images:
+  - ${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}:${COMMIT_SHA}
+  - ${_AR_HOSTNAME}/${PROJECT_ID}/${_AR_REPO}/${_SERVICE_NAME}:latest
+
+substitutions:
+  _SERVICE_NAME: bsx-style-checker
+  _REGION: australia-southeast1
+  _AR_HOSTNAME: australia-southeast1-docker.pkg.dev
+  _AR_REPO: cloud-run-source-deploy
+  _GEMINI_SECRET: gemini-api-key
+  _FIREBASE_SECRET: firebase-api-key
+
+options:
+  logging: CLOUD_LOGGING_ONLY

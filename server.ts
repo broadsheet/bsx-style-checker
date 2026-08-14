@@ -485,16 +485,24 @@ let lastDbStatus = {
   lastChecked: new Date().toISOString()
 };
 
+function loadFirebaseConfig() {
+  const configPath = path.join(process.cwd(), 'firebase-applet-config.json');
+  if (!fs.existsSync(configPath)) {
+    throw new Error('Firebase configuration file firebase-applet-config.json is missing.');
+  }
+  const firebaseConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+  const envApiKey = process.env.FIREBASE_API_KEY?.replace(/^"|"$/g, '');
+  if (envApiKey && envApiKey !== 'MY_FIREBASE_API_KEY') {
+    firebaseConfig.apiKey = envApiKey;
+  }
+  return firebaseConfig;
+}
+
 function getFirebaseApp() {
   try {
     return getApp();
   } catch {
-    const configPath = path.join(process.cwd(), 'firebase-applet-config.json');
-    if (!fs.existsSync(configPath)) {
-      throw new Error('Firebase configuration file firebase-applet-config.json is missing.');
-    }
-    const firebaseConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-    return initializeApp(firebaseConfig);
+    return initializeApp(loadFirebaseConfig());
   }
 }
 
@@ -512,8 +520,7 @@ function getStyleDb() {
 function getDb() {
   if (!firestoreDb) {
     const app = getFirebaseApp();
-    const configPath = path.join(process.cwd(), 'firebase-applet-config.json');
-    const firebaseConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    const firebaseConfig = loadFirebaseConfig();
     
     setLogLevel('silent');
     firestoreDb = initializeFirestore(app, {
@@ -2768,13 +2775,10 @@ ${macquarieMatchesStr}`;
     } catch (e) {
       console.warn("Lazy getDb invocation during status check failed:", e);
     }
-    const configPath = path.join(process.cwd(), 'firebase-applet-config.json');
-    let firebaseConfig = {};
-    if (fs.existsSync(configPath)) {
-      try {
-        firebaseConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-      } catch (e) {}
-    }
+    let firebaseConfig: Record<string, unknown> = {};
+    try {
+      firebaseConfig = loadFirebaseConfig();
+    } catch (e) {}
     res.json({
       status: lastDbStatus,
       firebaseConfig: {

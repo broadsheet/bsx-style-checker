@@ -44,7 +44,7 @@ substitutions:
   _SERVICE_NAME: bsx-style-checker
   _REGION: australia-southeast1
   _AR_HOSTNAME: australia-southeast1-docker.pkg.dev
-  _AR_REPO: cloud-run-source-deploy
+  _AR_REPO: bsx-style-checker-ar-prd
   _GEMINI_SECRET: gemini-api-key
   _FIREBASE_SECRET: firebase-api-key
 
